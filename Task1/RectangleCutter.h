@@ -1,3 +1,4 @@
+#pragma once
 #include "Rectangle.h"
 class RectangleCutter : public Rectangle{
 public:

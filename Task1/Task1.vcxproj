@@ -138,11 +138,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InscribedCircle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RectangleCutter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="InscribedCircle.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleCutter.h" />
   </ItemGroup>
