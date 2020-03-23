@@ -1,10 +1,9 @@
 class Rectangle {
-public:
-	static double num_of_rectangles;
-	static double total_square;
 private:
 	double left_down[2];
 	double right_up[2];
+	static double num_of_rectangles;
+	static double total_square;
 public:
 	Rectangle();
 	~Rectangle();
@@ -20,9 +19,12 @@ public:
 	double get_square();
 	double get_r_inner_circle();
 	double get_r_outer_circle();
+	double get_num_of_rectangles();
+	double get_total_square();
 	
 	bool is_square();
 	bool check_point(double* coordinats);
 
 	void change_geometry();
+
 };
