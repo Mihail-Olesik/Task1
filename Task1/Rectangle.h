@@ -7,8 +7,8 @@ private:
 public:
 	Rectangle();
 	~Rectangle();
-	Rectangle(double *left_down, double *right_up);
-	Rectangle(double* left_down, double height, double width);
+	Rectangle(double left_down[], double right_up[]);
+	Rectangle(double left_down[], double height, double width);
 	double get_width();
 	double get_height();
 	double* get_left_down();
