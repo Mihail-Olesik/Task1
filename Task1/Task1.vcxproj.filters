@@ -21,9 +21,15 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="RectangleCutter.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rectangle.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleCutter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
