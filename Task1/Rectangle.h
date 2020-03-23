@@ -1,3 +1,4 @@
+#pragma once
 class Rectangle {
 private:
 	double left_down[2];
