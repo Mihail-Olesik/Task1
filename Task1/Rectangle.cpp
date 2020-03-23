@@ -17,6 +17,11 @@ Rectangle::Rectangle() {
 }
 
 Rectangle::Rectangle(double left_down[], double right_up[]) {
+	if (left_down[0] > right_up[0])
+		swap(left_down[0], right_up[0]);
+	if (left_down[1] > right_up[1])
+		swap(left_down[1], right_up[1]);
+
 	for (int i = 0; i < 2; i++) {
 		this->left_down[i] = *(left_down + i);
 		this->right_up[i] = *(right_up + i);
@@ -26,6 +31,11 @@ Rectangle::Rectangle(double left_down[], double right_up[]) {
 }
 
 Rectangle::Rectangle(double left_down[], double height, double width) {
+	if (left_down[0] > right_up[0])
+		swap(left_down[0], right_up[0]);
+	if (left_down[1] > right_up[1])
+		swap(left_down[1], right_up[1]);
+	
 	for (int i = 0; i < 2; i++)
 		this->left_down[i] = *(left_down + i);
 	this->right_up[0] += width;
@@ -98,11 +108,9 @@ bool Rectangle::is_square() { //метод провер€щий пр€моугольник на квадрат
 }
 
 bool Rectangle::check_point(double* coordinats) { //метод, провер€ющий принадлежности точки области
-	if ((coordinats[0] >= left_down[0] and coordinats[0] <= right_up[0]) or
-		(coordinats[0] <= left_down[0] and coordinats[0] >= right_up[0]))
-		if ((coordinats[1] >= left_down[1] and coordinats[1] <= right_up[1]) or
-			(coordinats[1] <= left_down[1] and coordinats[1] >= right_up[1]))
-			return true; //вследствие неопределЄнности пор€дка ввода углов пользователем проверим оба случа€
+	if ((coordinats[0] >= left_down[0] and coordinats[0] <= right_up[0]) and 
+		(coordinats[1] >= left_down[1] and coordinats[1] <= right_up[1]))
+		return true; 
 	return false;
 }
 
@@ -120,6 +128,11 @@ void Rectangle::change_geometry(double* left_down, double* right_up) { //»зменен
 
 	total_square -= this->get_square();	//¬ычитаем из общей площади площадь старого пр€моугольника
 	
+	if (left_down[0] > right_up[0])
+		swap(left_down[0], right_up[0]);
+	if (left_down[1] > right_up[1])
+		swap(left_down[1], right_up[1]);
+
 	for (int i = 0; i < 2; i++) {	//¬ыполн€ем присваивание новых координат
 		this->left_down[i] = left_down[i];
 		this->right_up[i] = right_up[i];
