@@ -25,6 +25,6 @@ public:
 	bool is_square();
 	bool check_point(double* coordinats);
 
-	void change_geometry();
+	void change_geometry(double* left_down, double* right_up);
 
 };

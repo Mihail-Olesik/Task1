@@ -76,7 +76,7 @@ double Rectangle::get_perimeter() { //метод, возвращающий периметр прямоугольник
 }
 
 double Rectangle::get_square() { //метод, возвращающий площадь прямоугольника
-	return this->get_height() * this->get_height();
+	return this->get_height() * this->get_width();
 }
 
 double Rectangle::get_r_inner_circle() { //радиус вписанной окружности
@@ -104,4 +104,26 @@ bool Rectangle::check_point(double* coordinats) { //метод, проверяющий принадлеж
 			(coordinats[1] <= left_down[1] and coordinats[1] >= right_up[1]))
 			return true; //вследствие неопределённости порядка ввода углов пользователем проверим оба случая
 	return false;
+}
+
+void Rectangle::change_geometry(double* left_down, double* right_up) { //Изменение геометрии прямоугольника
+	try {
+		for (int i = 0; i < 2; i++) {	//Исключение, вызываемое при попытке передать координаты
+			if (left_down[i] == right_up[i])	//формирующие линию или точку.
+				throw "Rectangle is line of point.";	
+		}
+	}
+	catch (string str) {
+		cout << "Error: " + str;
+		return;
+	}
+
+	total_square -= this->get_square();	//Вычитаем из общей площади площадь старого прямоугольника
+	
+	for (int i = 0; i < 2; i++) {	//Выполняем присваивание новых координат
+		this->left_down[i] = left_down[i];
+		this->right_up[i] = right_up[i];
+	}
+	
+	total_square += this->get_square();	//Прибавляем новую площадь к общей
 }
