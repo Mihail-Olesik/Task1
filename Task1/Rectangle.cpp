@@ -81,12 +81,27 @@ double Rectangle::get_square() { //метод, возвращающий площадь прямоугольника
 
 double Rectangle::get_r_inner_circle() { //радиус вписанной окружности
 	if (this->is_square())	//только при условии, что прямоугольник -- квадрат можно вписать
-		return this->get_height / 2;
+		return this->get_height() / 2;
 	else
 		return -1;	//при несоответствии условия возвращается -1
 }
 
 double Rectangle::get_r_outer_circle() { //радиус описанной окружности
-	return sqrt(pow(this->get_height, 2) + pow(this->get_width, 2)) / 2;
+	return sqrt(pow(this->get_height(), 2) + pow(this->get_width(), 2)) / 2;
 }
 
+bool Rectangle::is_square() { //метод проверящий прямоугольник на квадрат
+	if (this->get_height() == this->get_width())
+		return true;
+	else
+		return false;
+}
+
+bool Rectangle::check_point(double* coordinats) { //метод, проверяющий принадлежности точки области
+	if ((coordinats[0] >= left_down[0] and coordinats[0] <= right_up[0]) or
+		(coordinats[0] <= left_down[0] and coordinats[0] >= right_up[0]))
+		if ((coordinats[1] >= left_down[1] and coordinats[1] <= right_up[1]) or
+			(coordinats[1] <= left_down[1] and coordinats[1] >= right_up[1]))
+			return true; //вследствие неопределённости порядка ввода углов пользователем проверим оба случая
+	return false;
+}
